@@ -1,0 +1,38 @@
+# Función principal que calcula el salario mensual
+def calcular_nomina():
+    # Solicitar el pago diario
+    salario_diario = float(input("Ingrese el pago diario de la persona: "))
+    
+    # Solicitar los días trabajados en el mes
+    dias_trabajados = int(input("Ingrese los días trabajados en el mes: "))
+    
+    # Solicitar las faltas (días no trabajados)
+    dias_faltas = int(input("Ingrese los días de falta (días no trabajados): "))
+    
+    # Calcular el salario base del mes (sin contar horas extras ni faltas)
+    salario_mensual = salario_diario * dias_trabajados
+    
+    # Calcular el descuento por faltas (si hay)
+    descuento_faltas = dias_faltas * salario_diario
+    
+    # Solicitar las horas extras trabajadas
+    horas_extras_totales = int(input("Ingrese las horas extras trabajadas en el mes: "))
+    
+    # Definir tarifa por hora extra (generalmente, el doble del salario normal por hora)
+    tarifa_hora_extra = salario_diario / 8 * 2  # 8 horas laborales en un día
+    
+    # Calcular el pago por horas extras
+    total_extra = horas_extras_totales * tarifa_hora_extra
+    
+    # Calcular el salario final después de descuentos y sumando las horas extras
+    salario_final = salario_mensual - descuento_faltas + total_extra
+    
+    # Imprimir los resultados detallados
+    print("\nResumen de la nómina:")
+    print(f"Salario mensual base: {salario_mensual:.2f}")
+    print(f"Descuento por faltas ({dias_faltas} días): {descuento_faltas:.2f}")
+    print(f"Pago por horas extras ({horas_extras_totales} horas): {total_extra:.2f}")
+    print(f"Salario final después de ajustes: {salario_final:.2f}")
+    
+# Llamar a la función principal
+calcular_nomina()
